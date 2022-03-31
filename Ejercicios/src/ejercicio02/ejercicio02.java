@@ -21,8 +21,10 @@ public class ejercicio02 {
 		int filas = matriz.length;
 		int columnas = matriz[0].length;
 
+		// Creo la nueva matriz
 		int[][] nuevaMatriz = new int[filas][columnas];
 		
+		// Inicializo la nueva matriz
 		for (int i = 0; i < filas; i++) {
 			for (int j = 0; j < columnas; j++) {
 				nuevaMatriz[i][j] = 0;
@@ -30,15 +32,19 @@ public class ejercicio02 {
 		}
 		
 		for (int i = 0; i < filas; i++) {
+			// Pregunto si existe el inferior una vez por cada fila
 			if (i + 1 < filas) {
 				for (int j = 0; j < columnas; j++) {
+					// Pregunto si existe el derecho
 					if (j + 1 < columnas) {
+						// Caso donde existe inferior y derecho
 						nuevaMatriz[i][j] += matriz[i][j];
 						nuevaMatriz[i][j] += matriz[i + 1][j];
 						nuevaMatriz[i + 1][j] += matriz[i][j];
 						nuevaMatriz[i][j] += matriz[i][j + 1];
 						nuevaMatriz[i][j + 1] += matriz[i][j];
 					} else {
+						// Caso donde solo existe inferior
 						nuevaMatriz[i][j] += matriz[i][j];
 						nuevaMatriz[i][j] += matriz[i + 1][j];
 						nuevaMatriz[i + 1][j] += matriz[i][j];
@@ -46,16 +52,20 @@ public class ejercicio02 {
 				}
 			} else {
 				for (int j = 0; j < columnas; j++) {
+					// Pregunto si existe el derecho
 					if (j + 1 < columnas) {
+						// Caso donde solo existe derecho
 						nuevaMatriz[i][j] += matriz[i][j];
 						nuevaMatriz[i][j] += matriz[i][j + 1];
 						nuevaMatriz[i][j + 1] += matriz[i][j];
 					} else {
+						// Caso donde no existe inferior ni derecho
 						nuevaMatriz[i][j] += matriz[i][j];
 					}
 				}
 			}
 		}
+		// Devuelvo nueva matriz
 		return nuevaMatriz;
 	}
 	
