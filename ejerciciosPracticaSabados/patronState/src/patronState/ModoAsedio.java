@@ -15,7 +15,6 @@ public class ModoAsedio extends ModoTanque {
 	@Override
 	public ModoTanque cambiarModo() {
 		return new ModoNormal();
-		
 	}
 
 }
